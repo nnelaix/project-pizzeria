@@ -178,15 +178,15 @@
             /* deduct price of option from price */
             price -= option.price;
           /* END ELSE IF: if option is not selected and option is default */
-        }
+          }
         /* END LOOP: for each optionId in param.options */
-      }
+        }
       /* END LOOP: for each paramId in thisProduct.data.params */
+      }
+      /* set the contents of thisProduct.priceElem to be the value of variable price */
+      thisProduct.priceElem.innerHTML = price;
     }
-    /* set the contents of thisProduct.priceElem to be the value of variable price */
-     thisProduct.priceElem.innerHTML = price;
   }
-
   const app = {
     initMenu: function () {
       const thisApp = this;
@@ -218,5 +218,4 @@
 
   app.init();
 
-}
 }

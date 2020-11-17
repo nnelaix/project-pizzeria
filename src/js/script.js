@@ -93,6 +93,7 @@
       thisProduct.formInputs = thisProduct.form.querySelectorAll(select.all.formInputs);
       thisProduct.cartButton = thisProduct.element.querySelector(select.menuProduct.cartButton);
       thisProduct.priceElem = thisProduct.element.querySelector(select.menuProduct.priceElem);
+      thisProduct.imageWrapper = thisProduct.element.querySelector(select.menuProduct.imageWrapper);
     }
 
     initAccordion() {
@@ -179,6 +180,18 @@
             price -= option.price;
           /* END ELSE IF: if option is not selected and option is default */
           }
+          /* all images found in thisProduct.imageWrapper for selector: dot, paramId, dash, optionId */
+        const allImages = thisProduct.imageWrapper.querySelectorAll('.' + paramId + '-' + optionId);
+        
+        /* START LOOP: display or remove ingredient on salad or pizza if option was selected or removed*/ 
+        for(let image of allImages){
+        if(optionSelected) {
+          image.classList.add(classNames.menuProduct.imageVisible); 
+       } else {
+           image.classList.remove(classNames.menuProduct.imageVisible);
+        }
+          /*END LOOP: if option was selected */
+        }
         /* END LOOP: for each optionId in param.options */
         }
       /* END LOOP: for each paramId in thisProduct.data.params */

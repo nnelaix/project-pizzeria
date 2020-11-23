@@ -264,9 +264,6 @@
         event.preventDefault();
         thisWidget.setValue(thisWidget.value + 1);
       });
-      thisCart.dom.toggleTrigger.addEventListener('click', function(){
-        thisCart.dom.wrapper(classNames.cart.wrapperActive);
-      });
     }
 
     announce(){
@@ -295,7 +292,18 @@
       thisCart.dom = {}; 
 
       thisCart.dom.wrapper = element;
-      thisCart.dom.toggleTrigger = thisCart.dom.wrapper(select.cart.toggleTrigger);
+
+      thisCart.dom.toggleTrigger = thisCart.dom.wrapper.querySelector(select.cart.toggleTrigger);
+    }
+
+    initActions() {
+      const thisCart = this;
+
+      thisCart.dom.toggleTrigger.addEventListener('click', function(event){
+        console.log('clicked');
+        event.preventDefault();
+        thisCart.dom.wrapper.classList.toggle(classNames.cart.wrapperActive);
+      });
     }
   }
   const app = {
@@ -313,6 +321,7 @@
 
       thisApp.data = dataSource;
     },
+
     initCart: function(){
       const thisApp = this;
 

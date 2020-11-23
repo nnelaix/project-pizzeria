@@ -214,7 +214,7 @@
     }
   }
 
-  class AmountWidget{
+  class AmountWidget{ 
     constructor(element){
       const thisWidget = this;
 
@@ -264,6 +264,9 @@
         event.preventDefault();
         thisWidget.setValue(thisWidget.value + 1);
       });
+      thisCart.dom.toggleTrigger.addEventListener('click', function(){
+        thisCart.dom.wrapper(classNames.cart.wrapperActive);
+      });
     }
 
     announce(){
@@ -281,6 +284,8 @@
       thisCart.products = [];
 
       thisCart.getElements(element);
+      thisCart.initActions();
+
       console.log('new Cart', thisCart);
     }
 
@@ -290,6 +295,7 @@
       thisCart.dom = {}; 
 
       thisCart.dom.wrapper = element;
+      thisCart.dom.toggleTrigger = thisCart.dom.wrapper(select.cart.toggleTrigger);
     }
   }
   const app = {

@@ -66,17 +66,17 @@ class CartProduct {
     });
   }
   getData() {
-   const thisCartProduct = this; 
+    const thisCartProduct = this; 
    
-   const ProductData = {
-   id: thisCartProduct.id,
-   name: thisCartProduct.name,
-   price: thisCartProduct.price,
-   priceSingle: thisCartProduct.priceSingle,
-   amount: thisCartProduct.amount,
-   params: thisCartProduct.params,
+    const ProductData = {
+      id: thisCartProduct.id,
+      name: thisCartProduct.name,
+      price: thisCartProduct.price,
+      priceSingle: thisCartProduct.priceSingle,
+      amount: thisCartProduct.amount,
+      params: thisCartProduct.params,
+    };
+    return ProductData;
   }
-  return ProductData;
-}
 }
 export default CartProduct;

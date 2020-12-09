@@ -1,9 +1,9 @@
 import {settings, select, classNames} from './settings.js';
 import Product from './components/Product.js';
 import Cart from './components/Cart.js';
+import Booking from './components/Booking.js';
 
 const app = {
-
   initPages: function() {
     const thisApp = this;
 
@@ -40,7 +40,13 @@ const app = {
       });
     }
   },
+  initBooking: function () {
+    const thisApp = this;
 
+    const bookingWrapper = document.querySelector(select.containerOf.booking);
+
+    thisApp.booking = new Booking(bookingWrapper); 
+  },
   activatePage: function(pageId) {
     const thisApp = this;
 
@@ -63,6 +69,7 @@ const app = {
       );
     }
   },
+
   initMenu: function () {
     const thisApp = this;
     //  console.log('thisApp.data:', thisApp.data);
@@ -116,6 +123,7 @@ const app = {
       console.log('templates:', templates);
     */
     thisApp.initPages();
+    thisApp.initBooking();
     thisApp.initData();
     thisApp.initCart();
   },

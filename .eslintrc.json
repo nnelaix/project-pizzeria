@@ -30,6 +30,7 @@
         ]
     },
     "globals": {
-        "Handlebars": true
+        "Handlebars": true,
+        "flatpickr": true
     }
 }

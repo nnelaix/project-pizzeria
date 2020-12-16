@@ -1,4 +1,4 @@
-import {select, settings} from '../settings.js';
+import {select} from '../settings.js';
 import utils from '../utils.js';
 import BaseWidget from './BaseWidget.js';
 
@@ -20,7 +20,7 @@ class DatePicker extends BaseWidget {
 
     thisWidget.maxDate = utils.addDays(thisWidget.minDate.settings.datePicker.maxDaysInFuture);
 
-    flatpickr(thisWidget.dom.input, {
+    flatpickr (thisWidget.dom.input, {
       defaultDate: thisWidget.minDate,
       minDate: thisWidget.minDate,
       maxDate: thisWidget.maxDate,
@@ -46,11 +46,8 @@ class DatePicker extends BaseWidget {
   isValid() {
     return true;
   }
-
   renderValue() {
-
   }
-
 }
 
 export default DatePicker;

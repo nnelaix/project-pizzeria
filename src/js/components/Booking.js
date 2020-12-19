@@ -11,6 +11,7 @@ class Booking {
     thisBooking.render(bookingWrapper);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.selectTable();
   }
 
   getData() {
@@ -61,14 +62,14 @@ class Booking {
         ]);
       })
       .then(function([bookings, eventsCurrent, eventsRepeat]){
-       // console.log(bookings);
-       // console.log(eventsCurrent);
-       // console.log(eventsRepeat);
+        // console.log(bookings);
+        // console.log(eventsCurrent);
+        // console.log(eventsRepeat);
         thisBooking.parseData(bookings, eventsCurrent, eventsRepeat);
       });
   }
 
-  parseData(bookings, eventsCurrent, eventsRepeat){
+  parseData(bookings, eventsCurrent, eventsRepeat) {
     const thisBooking = this;
 
     thisBooking.booked = {};
@@ -97,7 +98,7 @@ class Booking {
     thisBooking.updateDOM();
   }
 
-  makeBooked(date, hour, duration, table){
+  makeBooked(date, hour, duration, table) {
     const thisBooking = this;
 
     if(typeof thisBooking.booked[date] == 'undefined'){
@@ -116,7 +117,7 @@ class Booking {
     }
   }
 
-  updateDOM(){
+  updateDOM() {
     const thisBooking = this;
 
     thisBooking.date = thisBooking.datePicker.value;
@@ -132,7 +133,7 @@ class Booking {
       allAvailable = true;
     }
 
-    for (let table of thisBooking.dom.tables){
+    for (let table of thisBooking.dom.tables) {
       let tableId = table.getAttribute(settings.booking.tableIdAttribute);
       if(!isNaN(tableId)){
         tableId = parseInt(tableId);
@@ -150,6 +151,23 @@ class Booking {
     }
   }
 
+  selectTable() {
+    const thisBooking = this; 
+
+    for(let table of thisBooking.dom.tables) {
+     table.addEventListener('click', function(){
+
+      let tableId = table.getAttribute(settings.booking.tableIdAttribute);
+      if(!isNaN(tableId)){
+        tableId = parseInt(tableId);
+        }
+      if(!thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)) {
+        table.classList.toggle(classNames.booking.tableBooked);
+        }
+      });
+    }
+  }
+  
   render(bookingWrapper) {
     const thisBooking = this;
 

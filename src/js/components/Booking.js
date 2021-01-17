@@ -174,16 +174,17 @@ class Booking {
     const url = settings.db.url + '/' + settings.db.booking;
 
     const payload = {
-      date: thisBooking.dom.DatePicker.value,
-      hour: thisBooking.dom.hourPicker.value,
-      table: thisBooking.dom.selectTable.value,
-      duration: thisBooking.dom.duration.value,
-      ppl: thisBooking.dom.peopleAmount.value,
+      date: thisBooking.DatePicker.value,
+      hour: thisBooking.hourPicker.value,
+      table: thisBooking.tableSelected,
+      duration: thisBooking.hoursAmount.value,
+      ppl: thisBooking.peopleAmount.value,
       address: thisBooking.dom.address.value,
       phone: thisBooking.dom.phone.value,
       starters: [],
     };
-    for(let starter of thisBooking.starters){
+
+    for(let starter of thisBooking.dom.starters){
       if (starter.checked == true) {
         payload.starters.push(starter.value);
       }

@@ -150,4 +150,31 @@
       }
     }
   }
+
+  .carousel {
+    width: 604px;
+    min-height: 200px;
+    margin-top: 50px 0 40px;
+  }
+
+  .review-image {
+    min-width: 193px;
+    min-height: 193px;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  .review-text {
+    margin: 14px 0 auto;
+    padding-left: 150px;
+  }
+
+  .carousel-cell {
+    width: 100%;
+    display: flex;
+  }
 }

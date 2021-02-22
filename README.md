@@ -1,1 +1,1 @@
-https://git.heroku.com/tranquil-mesa-32914.git
+https://tranquil-mesa-32914.herokuapp.com/
